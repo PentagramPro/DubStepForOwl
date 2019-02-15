@@ -7,7 +7,7 @@
 #include "VSTComponents/OwlVoices/SawtoothVoice.h"
 
 //==============================================================================
-NewProjectAudioProcessor::NewProjectAudioProcessor()
+DubStepForOwlAudioProcessor::DubStepForOwlAudioProcessor()
 
      : AudioProcessor (BusesProperties().withOutput ("Output", AudioChannelSet::stereo(), true))
 , mStateManager(mPropRegistry)
@@ -20,81 +20,81 @@ NewProjectAudioProcessor::NewProjectAudioProcessor()
     mSynth.addSound(new CVoiceModuleHostSound());
 }
 
-NewProjectAudioProcessor::~NewProjectAudioProcessor()
+DubStepForOwlAudioProcessor::~DubStepForOwlAudioProcessor()
 {
 }
 
 //==============================================================================
-const String NewProjectAudioProcessor::getName() const
+const String DubStepForOwlAudioProcessor::getName() const
 {
     return JucePlugin_Name;
 }
 
-bool NewProjectAudioProcessor::acceptsMidi() const
+bool DubStepForOwlAudioProcessor::acceptsMidi() const
 {
     return true;
 }
 
-bool NewProjectAudioProcessor::producesMidi() const
+bool DubStepForOwlAudioProcessor::producesMidi() const
 {
     return false;
 }
 
-bool NewProjectAudioProcessor::isMidiEffect() const
+bool DubStepForOwlAudioProcessor::isMidiEffect() const
 {
     return false;
 }
 
-double NewProjectAudioProcessor::getTailLengthSeconds() const
+double DubStepForOwlAudioProcessor::getTailLengthSeconds() const
 {
     return 0.0;
 }
 
-int NewProjectAudioProcessor::getNumPrograms()
+int DubStepForOwlAudioProcessor::getNumPrograms()
 {
     return 1;   // NB: some hosts don't cope very well if you tell them there are 0 programs,
                 // so this should be at least 1, even if you're not really implementing programs.
 }
 
-int NewProjectAudioProcessor::getCurrentProgram()
+int DubStepForOwlAudioProcessor::getCurrentProgram()
 {
     return 0;
 }
 
-void NewProjectAudioProcessor::setCurrentProgram (int index)
+void DubStepForOwlAudioProcessor::setCurrentProgram (int index)
 {
 }
 
-const String NewProjectAudioProcessor::getProgramName (int index)
+const String DubStepForOwlAudioProcessor::getProgramName (int index)
 {
     return {};
 }
 
-void NewProjectAudioProcessor::changeProgramName (int index, const String& newName)
+void DubStepForOwlAudioProcessor::changeProgramName (int index, const String& newName)
 {
 }
 
 //==============================================================================
-void NewProjectAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
+void DubStepForOwlAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
 {
     mSynth.setCurrentPlaybackSampleRate(sampleRate);
 }
 
-void NewProjectAudioProcessor::releaseResources()
+void DubStepForOwlAudioProcessor::releaseResources()
 {
     // When playback stops, you can use this as an opportunity to free up any
     // spare memory, etc.
 }
 
 #ifndef JucePlugin_PreferredChannelConfigurations
-bool NewProjectAudioProcessor::isBusesLayoutSupported (const BusesLayout& layouts) const
+bool DubStepForOwlAudioProcessor::isBusesLayoutSupported (const BusesLayout& layouts) const
 {
     return !(layouts.getMainOutputChannelSet() != AudioChannelSet::mono() && layouts.getMainOutputChannelSet() != AudioChannelSet::stereo());
 
 }
 #endif
 
-void NewProjectAudioProcessor::processBlock (AudioBuffer<float>& buffer, MidiBuffer& midiMessages)
+void DubStepForOwlAudioProcessor::processBlock (AudioBuffer<float>& buffer, MidiBuffer& midiMessages)
 {
     ScopedNoDenormals noDenormals;
     if (mInternalBuffer.getNumSamples() < buffer.getNumSamples()) {
@@ -108,23 +108,23 @@ void NewProjectAudioProcessor::processBlock (AudioBuffer<float>& buffer, MidiBuf
 }
 
 //==============================================================================
-bool NewProjectAudioProcessor::hasEditor() const
+bool DubStepForOwlAudioProcessor::hasEditor() const
 {
     return true; // (change this to false if you choose to not supply an editor)
 }
 
-AudioProcessorEditor* NewProjectAudioProcessor::createEditor()
+AudioProcessorEditor* DubStepForOwlAudioProcessor::createEditor()
 {
     return new DubStepForOwlAudioProcessorEditor (*this);
 }
 
 //==============================================================================
-void NewProjectAudioProcessor::getStateInformation (MemoryBlock& destData)
+void DubStepForOwlAudioProcessor::getStateInformation (MemoryBlock& destData)
 {
     mStateManager.SaveStateToMemory(destData);
 }
 
-void NewProjectAudioProcessor::setStateInformation (const void* data, int sizeInBytes)
+void DubStepForOwlAudioProcessor::setStateInformation (const void* data, int sizeInBytes)
 {
     mStateManager.LoadStateFromMemory(MemoryBlock(data, sizeInBytes));
 }
@@ -133,5 +133,5 @@ void NewProjectAudioProcessor::setStateInformation (const void* data, int sizeIn
 // This creates new instances of the plugin..
 AudioProcessor* JUCE_CALLTYPE createPluginFilter()
 {
-    return new NewProjectAudioProcessor();
+    return new DubStepForOwlAudioProcessor();
 }

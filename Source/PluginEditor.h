@@ -23,7 +23,7 @@
 class DubStepForOwlAudioProcessorEditor  : public AudioProcessorEditor, private IGuiListener, public IPropertiesRegistryListener
 {
 public:
-    DubStepForOwlAudioProcessorEditor (NewProjectAudioProcessor&);
+    DubStepForOwlAudioProcessorEditor (DubStepForOwlAudioProcessor&);
     ~DubStepForOwlAudioProcessorEditor();
 
     //==============================================================================
@@ -38,7 +38,7 @@ private:
 
     // This reference is provided as a quick way for your editor to
     // access the processor object that created it.
-    NewProjectAudioProcessor& processor;
+    DubStepForOwlAudioProcessor& processor;
     IListenerHandle mRegistryListenerHandle;
 
     CDubStepGuiImpl mGui;

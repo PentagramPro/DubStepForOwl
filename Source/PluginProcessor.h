@@ -19,12 +19,12 @@ class CVoiceModuleHost;
 //==============================================================================
 /**
 */
-class NewProjectAudioProcessor  : public AudioProcessor
+class DubStepForOwlAudioProcessor  : public AudioProcessor
 {
 public:
     //==============================================================================
-    NewProjectAudioProcessor();
-    ~NewProjectAudioProcessor();
+    DubStepForOwlAudioProcessor();
+    ~DubStepForOwlAudioProcessor();
 
     //==============================================================================
     void prepareToPlay (double sampleRate, int samplesPerBlock) override;
@@ -71,5 +71,5 @@ private:
 
     CVoiceModuleHost* mHost;
     //==============================================================================
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (NewProjectAudioProcessor)
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (DubStepForOwlAudioProcessor)
 };

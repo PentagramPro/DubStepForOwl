@@ -12,7 +12,7 @@
 #include "PluginEditor.h"
 
 //==============================================================================
-DubStepForOwlAudioProcessorEditor::DubStepForOwlAudioProcessorEditor (NewProjectAudioProcessor& p)
+DubStepForOwlAudioProcessorEditor::DubStepForOwlAudioProcessorEditor (DubStepForOwlAudioProcessor& p)
     : AudioProcessorEditor (&p), processor (p)
 {
     // Make sure that before the constructor has finished, you've set the
