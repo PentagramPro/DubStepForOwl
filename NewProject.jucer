@@ -6,6 +6,13 @@
   <MAINGROUP id="ao62gW" name="DubStepForOwl">
     <GROUP id="{C922879D-8002-6670-9374-07CCCF48129B}" name="Source">
       <GROUP id="{A9F2B927-9A81-703C-1D31-80CA23EED334}" name="UI">
+        <FILE id="A8T6kL" name="CurveEditor.cpp" compile="1" resource="0" file="Source/UI/CurveEditor.cpp"/>
+        <FILE id="vHdJlA" name="CurveEditor.h" compile="0" resource="0" file="Source/UI/CurveEditor.h"/>
+        <FILE id="blCcsp" name="CurveEditorImpl.cpp" compile="1" resource="0"
+              file="Source/UI/CurveEditorImpl.cpp"/>
+        <FILE id="sAWb1B" name="CurveEditorImpl.h" compile="0" resource="0"
+              file="Source/UI/CurveEditorImpl.h"/>
+        <FILE id="mZx5EO" name="CurvePoint.h" compile="0" resource="0" file="Source/UI/CurvePoint.h"/>
         <FILE id="FaA9h4" name="DubStepGui.cpp" compile="1" resource="0" file="Source/UI/DubStepGui.cpp"/>
         <FILE id="se27HJ" name="DubStepGui.h" compile="0" resource="0" file="Source/UI/DubStepGui.h"/>
         <FILE id="xJresa" name="DubStepGuiImpl.cpp" compile="1" resource="0"
